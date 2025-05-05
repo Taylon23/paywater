@@ -1,0 +1,110 @@
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .perfil-info form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilo do formulário */
+  .perfil-info {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: var(--text-gray);
+    width: 100%;
+  }
+  
+  .perfil-info h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--green-accent); /* Verde claro */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd; /* Azul médio */
+    border-radius: 5px;
+    color: #1a1a1a;
+    font-size: 1rem;
+  }
+  
+  .form-group input::placeholder {
+    color: #c2d2f2; /* Azul fraco */
+  }
+  
+  .form-group input:focus {
+    border-color: var(--green-accent); /* Verde claro */
+    outline: none;
+  }
+  
+  /* Botão de envio */
+  .btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--green-medium-light); /* Verde claro */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: --green-very-dark; /* Verde escuro */
+  }
+  
+  .content-singup-login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #1a1a1a;
+  }
+  
+  .messages .alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .messages .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .messages .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 768px) {
+    .perfil-info{
+      width: 100%;
+    }
+  }

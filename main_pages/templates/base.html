@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/main_pages/base.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/css-global.css' %}" />
+    {% block link_extras %} {% endblock %}
+  </head>
+  <body>
+    {% block navBar %}
+
+    <header>
+      <!-- {% if not request.user.is_authenticated %}
+      <div class="content-login">
+        <div class="login">
+          <a href="{% url 'login' %}" class="login-link">Entrar</a>
+          <div class="bar-vertical"></div>
+          <a href="{% url 'register' %}" class="login-link">Registrar</a>
+        </div>
+      </div>
+      {% else %}
+      <div class="content-login">
+        <form id="logout-form" method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="button" class="login-link" onclick="confirmLogout()">
+            Encerrar Sessão
+          </button>
+        </form>
+      </div>
+
+      {% endif %} -->
+
+      <nav class="NavBar">
+        <div class="content-logo">
+          <a href=""
+            ><img src="{% static 'img/main_pages/ECOWATT.png' %}" alt=""
+          /></a>
+        </div>
+        <div class="content-menu">
+          <div class="content-icon-links">
+            <a href="" class="line-hover"
+              ><i class="fas fa-home"></i> Home</a
+            >
+          </div>
+          <div class="content-icon-links dropdown">
+            <a class="dropdown-toggle">
+              <i class="fas fa-cogs"></i> Recursos
+            </a>
+            <div class="dropdown-menu">
+              <a href=""
+                >teste</a
+              >
+              <a href=""
+                >teste</a
+              >
+              <a href=""
+                >teste</a
+              >
+            </div>
+          </div>
+          <!-- <div class="content-icon-links">
+            <a href="" class="line-hover"
+              ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+            >
+          </div> -->
+          <div class="content-icon-links">
+            <a href="{% url 'perfil' %}" class="line-hover"
+              ><i class="fas fa-user"></i> Perfil</a
+            >
+          </div>
+        </div>
+        <!-- Incluir o menu hamburguer responsivo -->
+        {% include 'menu_mobile.html' %}
+      </nav>
+    </header>
+
+    {% endblock %}
+
+    <div class="content-main">
+      <main>{% block main %}{% endblock %}</main>
+    </div>
+
+    {% block footer %}
+
+    <footer>
+      <div class="footer-container">
+        <!-- Informações de Contato -->
+        <div class="footer-section">
+          <h4>Contato</h4>
+          <p>Endereço: Rua da energia, 123</p>
+          <p>Telefone: (99) 99999-9999</p>
+          <p>Email: contato@ecowatt.com</p>
+        </div>
+
+        <!-- Links Úteis -->
+        <div class="footer-section">
+          <h4>Links Úteis</h4>
+          <ul>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Redes Sociais -->
+        <div class="footer-section">
+          <h4>Siga-nos</h4>
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <!-- Créditos -->
+      <div class="footer-section dieritos-autorais">
+        <p>&copy; 2024 ECOWATT. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    {% endblock %}
+
+    <script src="{% static 'js/main_pages/menuMobile.js' %}"></script>
+    <script src="{% static 'js/main_pages/logout.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    {% block script %} {% endblock %}
+  </body>
+</html>
