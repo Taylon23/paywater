@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Detalhes do Pedido #{{ pedido.id }}
+{% endblock %}
+
+{% block link_extras %}
+    <link rel="stylesheet" href="{% static 'css/user/perfil.css' %}">
+{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <h2>Detalhes do Pedido #{{ pedido.id }}</h2>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <p><strong>Data:</strong> {{ pedido.data_criacao|date:"d/m/Y H:i" }}</p>
+            <p><strong>Marca:</strong> {{ pedido.marca }}</p>
+            <p><strong>Quantidade:</strong> {{ pedido.quantidade }}</p>
+            <p><strong>Forma de Pagamento:</strong> {{ pedido.pagamento }}</p>
+            <p><strong>Tipo de Entrega:</strong> {{ pedido.tipo_entrega }}</p>
+            <p><strong>Valor Total:</strong> R$ {{ pedido.valor_total|floatformat:2 }}</p>
+        </div>
+    </div>
+
+    <a href="{% url 'tabela_pedidos_cliente' %}" class="btn btn-secondary">Voltar aos pedidos</a>
+</div>
+{% endblock %}

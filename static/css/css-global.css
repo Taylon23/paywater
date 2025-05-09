@@ -1,33 +1,39 @@
 :root {
-    /* Cores do tema */
-    --green-light: #44d593;
-    /* Ideal para fundos claros, elementos secundários ou espaços que precisam de um toque suave e natural. */
+  /* Cores do tema – versão com tons de azul */
   
-    --green-background: #48bf6b;
-  
-    --gray-light: #e6e6e6;
-  
-    --text-gray: #393939;
-  
-    --blue-button: #0d6efd;
-  
-    --purple-button: #5250bd;
-  
-    --blue-button-hover: #6bb1e4;
-  
-    --text-gray-light: #b3b3b3;
-  
-    --red-accent: rgb(214, 64, 64);
-  
-    --green-medium-light: #4bc954;
-    /* Um pouco mais escura que a light, perfeita para hover states, detalhes ou para contrastar com fundos brancos. */
-  
-    --green-dark: #067302;
-    /* Uma cor escura e vibrante, ótima para textos, botões de destaque ou elementos que precisam chamar atenção. */
-  
-    --green-very-dark: #036221;
-    /* A mais escura do tema, ideal para textos em fundos claros, rodapés ou áreas que precisam de contraste forte. */
-  
-    --green-accent: #10bf04;
-    /* Uma cor vibrante e chamativa, perfeita para botões principais, links ou elementos que precisam se destacar. */
-  }
+  --blue-light: #a8d8f8;
+  /* Ideal para fundos claros ou áreas suaves, passa leveza e frescor */
+
+  --blue-background: #4aaee8;
+  /* Fundo principal com um azul vívido e amigável */
+
+  --gray-light: #fafafa;
+
+  --text-gray: #393939;
+
+  --blue-button: #0077cc;
+  /* Botão principal – azul mais forte, confiável */
+
+  --blue-button-hover: #3399ff;
+  /* Hover para botão – tom mais claro e vibrante */
+
+  --purple-button: #5c67f2;
+  /* Botão secundário, mantendo um toque moderno */
+
+  --text-gray-light: #b3b3b3;
+
+  --red-accent: rgb(214, 64, 64);
+  /* Cor de alerta ou erro */
+
+  --blue-medium-light: #66c2ff;
+  /* Para detalhes, hover states, ou caixas de destaque */
+
+  --blue-dark: #005b99;
+  /* Azul escuro para textos ou destaques importantes */
+
+  --blue-very-dark: #003f66;
+  /* Ideal para rodapés ou fundo escuro com contraste */
+
+  --blue-accent: #00bfff;
+  /* Azul vibrante para chamar atenção (links, CTAs, etc) */
+}

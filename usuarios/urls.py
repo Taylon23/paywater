@@ -11,4 +11,6 @@ urlpatterns = [
     path('perfil/atualizar/', views.completar_perfil, name='completar-perfil'),
     path('alterar-senha/', views.alterar_senha, name='alterar-senha'),
     path('deletar-conta/', views.deletar_conta, name='deletar-conta'),
+    path('meus-pedidos/', views.tabela_pedidos_cliente, name='tabela_pedidos_cliente'),
+     path('pedido/<int:pedido_id>/', views.detalhes_pedido, name='detalhes_pedido'),
 ]

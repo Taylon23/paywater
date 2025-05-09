@@ -10,7 +10,7 @@ a {
 body {
   font-family: "Poppins", sans-serif;
   font-style: normal;
-  background-color: #fcfcfc;
+  background-color: var(--gray-light); /* Alterado para --gray-light */
   margin: 0;
   padding: 0;
 }
@@ -30,44 +30,44 @@ body {
   display: flex;
   align-items: center;
   margin-right: 10px;
-  gap: 10px; 
+  gap: 10px;
 }
 
 /* Estilo dos links */
 .login-link {
   text-decoration: none;
-  color: #60bf78;
-  font-weight: bold; 
+  color: var(--blue-button); /* Alterado para --blue-button */
+  font-weight: bold;
   transition: color 0.3s ease;
   padding: .3em .5em;
-  border: solid 1px #ccc;
+  border: solid 1px #ccc; /* Mantido, pois não há variável correspondente */
   border-radius: 3px;
 }
 
 .login-link:hover {
-  color: #559e67; 
-  background-color: #ceeef1;
+  color: var(--blue-button-hover); /* Alterado para --blue-button-hover */
+  background-color: #ceeef1; /* Mantido, pois não há variável correspondente */
 }
 
 
 .bar-vertical {
   width: 2px;
-  height: 20px; 
-  background-color: #ccc;
+  height: 20px;
+  background-color: #ccc; /* Mantido, pois não há variável correspondente */
 }
 
 .NavBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: solid 1px #ccc;
-  color: #fff;
-  padding: 1em 1em 0 0;
+  border-bottom: solid 1px #ccc; /* Mantido, pois não há variável correspondente */
+  color: var(--blue-very-dark); /* Sugestão: Azul mais escuro para o texto da navegação */
+  padding: 0 1em 0 0;
 }
 
 .content-logo img {
   width: 200px;
-  height: 50px;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -78,12 +78,12 @@ body {
 }
 
 .content-menu a {
-  color: #1a1a1a;
+  color: var(--text-gray); /* Alterado para --text-gray */
   transition: all 0.3s ease;
 }
 
 .content-menu a:hover {
-  color: #559e67;
+  color: var(--blue-medium-light); /* Sugestão: Um azul mais claro para o hover do menu */
 }
 
 .content-icon-links {
@@ -97,14 +97,14 @@ body {
   left: 0;
   width: 0;
   height: 2px; /* Espessura da linha */
-  background-color: #60bf78; /* Cor da linha */
+  background-color: var(--blue-accent); /* Alterado para --blue-accent */
   transition: width 0.3s ease-in-out; /* Transição suave para aumentar a linha */
 }
 
 .content-icon-links .line-hover {
   display: inline-block;
   text-decoration: none;
-  color: #333;
+  color: var(--text-gray); /* Alterado para --text-gray */
   padding: 10px 0;
   font-size: 16px;
   font-weight: 500;
@@ -113,43 +113,29 @@ body {
 
 /* Efeito de hover */
 .content-icon-links .line-hover:hover::after {
-  width: 100%; 
+  width: 100%;
 }
 
 .content-icon-links .line-hover:hover {
-  color: #60bf78; 
+  color: var(--blue-accent); /* Alterado para --blue-accent */
 }
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: -50%;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  z-index: 999;
-  padding: 0;
-}
-
-@media (max-width: 768px)  {
+/* @media (max-width: 768px)  {
   .dropdown-menu{
     left: -50%;
     width: 200px;
   }
-}
+} */
 
 .dropdown-menu a {
   display: block;
-  color: #333;
+  color: var(--text-gray); /* Alterado para --text-gray */
   text-decoration: none;
   padding: 5px 10px;
 }
 
 .dropdown-menu a:hover {
-  background-color: #f0f0f0;
+  background-color: var(--gray-light); /* Sugestão: Usar um tom claro para o hover do dropdown */
 }
 
 .dropdown:hover .dropdown-menu {
@@ -169,16 +155,16 @@ body {
 /* Menu Hamburguer */
 .menu-hamburger {
   display: none;
-  color: #1a1a1a;
+  color: var(--text-gray); /* Alterado para --text-gray */
 }
 
 #mobile-nav {
   display: none;
   flex-direction: column;
   position: absolute;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Mantido, pois não há variável correspondente */
+  background-color: #fff; /* Mantido, pois não há variável correspondente */
+  border: 1px solid #ccc; /* Mantido, pois não há variável correspondente */
   border-radius: 5px;
   top: 11%;
   right: 0;
@@ -187,7 +173,7 @@ body {
 
 #mobile-nav a {
   padding: 10px;
-  color: #1a1a1a;
+  color: var(--text-gray); /* Alterado para --text-gray */
 }
 
 @media (max-width: 768px) {
@@ -210,8 +196,8 @@ main {
 }
 
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--blue-very-dark); /* Alterado para --blue-very-dark */
+  color: var(--gray-light); /* Sugestão: Um tom claro para o texto do rodapé */
 }
 
 .footer-container {
@@ -226,6 +212,7 @@ footer {
 .footer-section h4 {
   font-size: 1.2em;
   margin-bottom: 10px;
+  color: var(--gray-light); /* Sugestão: Um azul claro para os títulos do rodapé */
 }
 
 .footer-section ul {
@@ -238,25 +225,27 @@ footer {
 }
 
 .footer-section ul li a {
-  color: #60bf78;
+  color: var(--blue-accent); /* Alterado para --blue-accent para links no rodapé */
   text-decoration: none;
 }
 
 .footer-section ul li a:hover {
   text-decoration: underline;
+  color: var(--blue-light); /* Sugestão: Um tom mais claro no hover dos links do rodapé */
 }
 
 .social-icon {
-  color: #60bf78;
+  color: var(--blue-accent); /* Alterado para --blue-accent para ícones sociais */
   font-size: 1.5em;
   margin-right: 10px;
   text-decoration: none;
 }
 
 .social-icon:hover {
-  color: #fff;
+  color: var(--blue-light); /* Sugestão: Um tom mais claro no hover dos ícones sociais */
 }
 
 .dieritos-autorais {
   text-align: center;
+  color: var(--text-gray-light); /* Sugestão: Um tom de cinza claro para os direitos autorais */
 }

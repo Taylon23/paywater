@@ -9,12 +9,14 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
+from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import UserPerfil
 from .forms import SignUpForm,UserPerfilForm
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
+from main_pages import models as mainModels
 
 
 def register(request):
@@ -146,3 +148,14 @@ class CustomLoginView(LoginView):
                 request, 'Você precisa estar logado para acessar esta página.')
         return super().get(request, *args, **kwargs)
     
+
+def tabela_pedidos_cliente(request):
+    # Recupera os pedidos do usuário autenticado
+    pedidos = mainModels.Pedido.objects.filter(usuario=request.user)
+    
+    # Passa os pedidos para o template
+    return render(request, 'tabela_pedidos_cliente.html', {'pedidos': pedidos})
+
+def detalhes_pedido(request, pedido_id):
+    pedido = get_object_or_404(mainModels.Pedido, id=pedido_id)
+    return render(request, 'detalhes_pedido.html', {'pedido': pedido})

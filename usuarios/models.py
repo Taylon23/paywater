@@ -18,6 +18,7 @@ class UserPerfil(models.Model):
         max_length=2, blank=True, null=True, help_text="Estado da instalação (ex: PI)")
     cidade = models.CharField(
         max_length=100, blank=True, null=True, help_text="Cidade do usuário")
+    referencia = models.TextField()
 
     def __str__(self):
         return f"Perfil {self.usuario.username}"

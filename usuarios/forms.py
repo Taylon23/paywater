@@ -38,7 +38,7 @@ class UserPerfilForm(forms.ModelForm):
     class Meta:
         model = UserPerfil
         fields = ['nome_completo', 'data_nascimento', 'cep',
-                  'cpf', 'endereco', 'estado', 'cidade', 'foto']
+                  'cpf', 'endereco', 'estado', 'cidade', 'foto','referencia']
 
     nome_completo = forms.CharField(
         label='Nome Completo',

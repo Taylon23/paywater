@@ -1,9 +1,5 @@
-/* Estilos específicos para o login */
-#logomarca-img {
-  width: 200px;
-  height: 100px;
-  object-fit: cover;
-  margin: 1em 0 0 1em;
+.content-main{
+    padding: 20px 0;
 }
 
 .login-container {
@@ -31,7 +27,9 @@
 .login-form h2 {
   margin-bottom: 20px;
   text-align: center;
-  color: var(--blue-accent); /* Substituído por --blue-accent (azul vibrante para destaque) */
+  color: var(
+    --blue-accent
+  ); /* Substituído por --blue-accent (azul vibrante para destaque) */
 }
 
 .form-group {
@@ -45,8 +43,8 @@
   font-weight: bold;
 }
 
-.form-group input {
-  width: 94%;
+.form-group input{
+  width: 100%;
   padding: 10px;
   border: 1px solid var(--gray-light);
   border-radius: 5px;
@@ -60,14 +58,18 @@
 }
 
 .form-group input:focus {
-  border-color: var(--blue-medium-light); /* Substituído por --blue-medium-light (azul para foco) */
+  border-color: var(
+    --blue-medium-light
+  ); /* Substituído por --blue-medium-light (azul para foco) */
   outline: none;
 }
 
 .btn-submit {
   width: 100%;
   padding: 10px;
-  background-color: var(--blue-button); /* Substituído por --blue-button (azul principal para botão) */
+  background-color: var(
+    --blue-button
+  ); /* Substituído por --blue-button (azul principal para botão) */
   color: #fff; /* Mantido, geralmente branco para botões primários */
   border: none;
   border-radius: 5px;
@@ -77,7 +79,9 @@
 }
 
 .btn-submit:hover {
-  background-color: var(--blue-button-hover); /* Substituído por --blue-button-hover (azul mais claro no hover) */
+  background-color: var(
+    --blue-button-hover
+  ); /* Substituído por --blue-button-hover (azul mais claro no hover) */
 }
 
 .content-singup-login {
@@ -88,12 +92,16 @@
 }
 
 .content-singup-login span a {
-  color: var(--blue-accent); /* Substituído por --blue-accent (azul para links) */
+  color: var(
+    --blue-accent
+  ); /* Substituído por --blue-accent (azul para links) */
   transition: all 0.3s ease;
 }
 
 .content-singup-login span a:hover {
-  color: var(--blue-medium-light); /* Substituído por --blue-medium-light (azul mais claro no hover do link) */
+  color: var(
+    --blue-medium-light
+  ); /* Substituído por --blue-medium-light (azul mais claro no hover do link) */
 }
 
 .messages .alert {

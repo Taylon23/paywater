@@ -1,0 +1,71 @@
+/* home.css */
+
+/* Banner principal */
+.banner {
+    background: url('../img/banner/banner_agua.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-shadow: 1px 1px 4px #000;
+  }
+  
+  /* Seção de produtos */
+  .produtos h2 {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .produtos img {
+    max-height: 200px;
+    object-fit: contain;
+  }
+  
+  .produtos h5 {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .produtos p {
+    font-size: 1.1rem;
+    color: #444;
+  }
+  
+  /* Pagamento */
+  .pagamento img {
+    margin-top: 10px;
+  }
+  
+  /* Fornecedor */
+  .fornecedor p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  /* Chamada para ação */
+  .chamada-acao {
+    background-color: #6a1b9a;
+  }
+  
+  .chamada-acao h2 {
+    font-weight: bold;
+  }
+
+  section img{
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    transition: all .3s ease;
+  }
+  section img:hover{
+    transform: scale(1.06);
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .produtos .col-md-4 {
+      margin-bottom: 20px;
+    }
+  
+    .fornecedor .col-md-6 {
+      margin-bottom: 20px;
+    }
+  }
+  

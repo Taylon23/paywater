@@ -25,9 +25,8 @@
   </head>
   <body>
     {% block navBar %}
-
     <header>
-      <!-- {% if not request.user.is_authenticated %}
+     {% if not request.user.is_authenticated %}
       <div class="content-login">
         <div class="login">
           <a href="{% url 'login' %}" class="login-link">Entrar</a>
@@ -45,50 +44,49 @@
         </form>
       </div>
 
-      {% endif %} -->
+      {% endif %}
 
       <nav class="NavBar">
         <div class="content-logo">
-          <a href=""
-            ><img src="{% static 'img/main_pages/ECOWATT.png' %}" alt=""
-          /></a>
+          <a href="{% url 'home' %}">
+            <img src="{% static 'img/main_pages/PAYWATER.png' %}" alt="Logo PAYWATER" />
+          </a>
         </div>
         <div class="content-menu">
           <div class="content-icon-links">
-            <a href="" class="line-hover"
-              ><i class="fas fa-home"></i> Home</a
-            >
-          </div>
-          <div class="content-icon-links dropdown">
-            <a class="dropdown-toggle">
-              <i class="fas fa-cogs"></i> Recursos
+            <a href="{% url 'home' %}" class="line-hover">
+              <i class="fas fa-home"></i> Home
             </a>
-            <div class="dropdown-menu">
-              <a href=""
-                >teste</a
-              >
-              <a href=""
-                >teste</a
-              >
-              <a href=""
-                >teste</a
-              >
-            </div>
           </div>
-          <!-- <div class="content-icon-links">
-            <a href="" class="line-hover"
-              ><i class="fas fa-tachometer-alt"></i> Dashboard</a
-            >
-          </div> -->
           <div class="content-icon-links">
-            <a href="{% url 'perfil' %}" class="line-hover"
-              ><i class="fas fa-user"></i> Perfil</a
-            >
+            <a href="{% url 'fazer_pedido' %}" class="line-hover">
+              <i class="fas fa-shopping-cart"></i> Fazer Pedido
+            </a>
           </div>
+          <div class="content-icon-links">
+            <a href="" class="line-hover">
+              <i class="fas fa-info-circle"></i> Como Funciona
+            </a>
+          </div>
+          <div class="content-icon-links">
+            <a href="" class="line-hover">
+              <i class="fas fa-tags"></i> Promoções
+            </a>
+          </div>
+      
+          {% if request.user.is_authenticated %}
+            <div class="content-icon-links">
+              <a href="{% url 'perfil' %}" class="line-hover">
+                <i class="fas fa-user"></i> Perfil
+              </a>
+            </div>
+          {% endif %}
         </div>
+      
         <!-- Incluir o menu hamburguer responsivo -->
         {% include 'menu_mobile.html' %}
       </nav>
+      
     </header>
 
     {% endblock %}
@@ -137,10 +135,11 @@
 
     <script src="{% static 'js/main_pages/menuMobile.js' %}"></script>
     <script src="{% static 'js/main_pages/logout.js' %}"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     {% block script %} {% endblock %}
   </body>
 </html>
