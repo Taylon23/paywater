@@ -93,11 +93,12 @@ def admin_dashboard(request):
     hoje = timezone.now().date()
     primeiro_dia_mes = hoje.replace(day=1)
 
+    # Vendas
     total_vendas_hoje = Pedido.objects.filter(data_criacao__date=hoje).count()
-    total_vendas_mes = Pedido.objects.filter(
-        data_criacao__date__gte=primeiro_dia_mes).count()
+    total_vendas_mes = Pedido.objects.filter(data_criacao__date__gte=primeiro_dia_mes).count()
     total_vendas_geral = Pedido.objects.count()
 
+    # Dinheiro
     total_dinheiro_hoje = Pedido.objects.filter(data_criacao__date=hoje, pagamento='dinheiro').aggregate(
         Sum('valor_total'))['valor_total__sum'] or 0
     total_dinheiro_mes = Pedido.objects.filter(data_criacao__date__gte=primeiro_dia_mes, pagamento='dinheiro').aggregate(
@@ -105,24 +106,28 @@ def admin_dashboard(request):
     total_dinheiro_geral = Pedido.objects.filter(pagamento='dinheiro').aggregate(
         Sum('valor_total'))['valor_total__sum'] or 0
 
-    usuario_mais_pedidos = User.objects.annotate(
-        num_pedidos=Count('pedidos')).order_by('-num_pedidos').first()
-    top_usuarios_pedidos = User.objects.annotate(
-        num_pedidos=Count('pedidos')).order_by('-num_pedidos')[:5]
+    # Usuários
+    usuario_mais_pedidos = User.objects.annotate(num_pedidos=Count('pedidos')).order_by('-num_pedidos').first()
+    top_usuarios_pedidos = User.objects.annotate(num_pedidos=Count('pedidos')).order_by('-num_pedidos')[:5]
 
-    # Total de Psiu
+    # Águas - Correção: estava 'aggregate' (errado) em vez de 'aggregate' (correto)
+    total_psiu_mes = Pedido.objects.filter(
+        data_criacao__date__gte=primeiro_dia_mes,
+        marca__iexact='psiu'
+    ).aggregate(Sum('quantidade'))['quantidade__sum'] or 0
+    
+    total_estrela_mes = Pedido.objects.filter(
+        data_criacao__date__gte=primeiro_dia_mes,
+        marca__iexact='estrela'
+    ).aggregate(Sum('quantidade'))['quantidade__sum'] or 0
+    
+    total_agua_mes = total_psiu_mes + total_estrela_mes
+    
+    # Totais gerais
     total_psiu = Pedido.objects.filter(marca__iexact='psiu').aggregate(
         Sum('quantidade'))['quantidade__sum'] or 0
-
-    # Total de Estrela
     total_estrela = Pedido.objects.filter(marca__iexact='estrela').aggregate(
         Sum('quantidade'))['quantidade__sum'] or 0
-
-    # Total de Psiu e Estrela vendidos no mês
-    total_agua_mes = Pedido.objects.filter(
-        data_criacao__date__gte=primeiro_dia_mes,
-        marca__in=['psiu', 'estrela']
-    ).aggregate(Sum('quantidade'))['quantidade__sum'] or 0
 
     context = {
         'total_vendas_hoje': total_vendas_hoje,
@@ -136,6 +141,8 @@ def admin_dashboard(request):
         'total_agua_mes': total_agua_mes,
         'total_psiu': total_psiu,
         'total_estrela': total_estrela,
+        'total_psiu_mes': total_psiu_mes,
+        'total_estrela_mes': total_estrela_mes,
     }
 
     return render(request, 'admin_dashboard.html', context)
